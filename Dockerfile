@@ -6,7 +6,10 @@ RUN corepack enable && corepack prepare pnpm@latest --activate
 WORKDIR /app
 
 # Copy package files
-COPY package.json pnpm-lock.yaml .npmrc ./
+COPY package.json pnpm-lock.yaml ./
+
+# Configure pnpm
+RUN echo "shamefully-hoist=true" > .npmrc
 
 # Install dependencies (regenerate for Linux)
 RUN pnpm install --no-frozen-lockfile
