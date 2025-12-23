@@ -1,0 +1,9 @@
+[phases.install]
+cmds = ["pnpm install"]
+
+[phases.build]
+cmds = ["pnpm build"]
+
+[start]
+cmd = "node .output/server/index.mjs"
+
